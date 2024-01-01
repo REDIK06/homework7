@@ -27,10 +27,21 @@ cursor.execute('''UPDATE user SET age=99 WHERE rowid!=2 ''')
 
 # REED-SELECT,fech
 cursor.execute('''SELECT rowid,* FROM user''')
-a=cursor.fetchall()
+a = cursor.fetchall()
 for i in a:
     print(i)
 
 
 db.commit()
 db.close()
+
+
+def delete_even_rowid():
+    db = sqlite3.connect('op36_3.db')
+    cursor = db.cursor()
+    cursor.execute('''DELETE FROM user WHERE rowid%2=0''')
+    db.commit()
+    db.close()
+
+
+delete_even_rowid()
