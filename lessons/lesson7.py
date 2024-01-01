@@ -44,4 +44,4 @@ def delete_an_even():
     db.close()
 
 
-delete_an_even ()
+delete_an_even()
